@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تهنئة رمضان</title>
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        /* Golden Luxury Theme Configuration */
+        :root {
+            --primary-dark: #2c1e0a; 
+            --primary: #5c431a; 
+            --gold-light: #fff3d6;
+            --gold-main: #d4af37;
+            --gold-dark: #8a6d1c;
+            --bg-gold: linear-gradient(135deg, #fdf5e6 0%, #ffdf91 50%, #d4af37 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #3d2b08;
+            --shadow-gold: 0 20px 50px rgba(138, 109, 28, 0.3);
+            --border-gold: 2px solid #d4af37;
+        }
+
+        /* Global Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Tajawal', sans-serif; 
+            background: var(--bg-gold);
+            color: var(--text-main); 
+            line-height: 1.6; 
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        /* Premium Background Pattern */
+        .background-overlay {
+            position: fixed; inset: 0; z-index: -2; opacity: 0.15;
+            background-image: url('https://www.transparenttextures.com/patterns/exclusive-paper.png');
+        }
+        
+        .ornament-bg {
+            position: fixed; inset: 0; z-index: -1; opacity: 0.2;
+            background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+            background-repeat: repeat;
+        }
+
+        /* Animated Decorative Elements */
+        .effects-container { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Symmetrical Lanterns */
+        .lantern {
+            position: fixed;
+            top: -10px;
+            font-size: 5.5rem;
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.2));
+            animation: swing 8s infinite ease-in-out;
+            transform-origin: top center;
+            z-index: 1;
+        }
+        .lantern.left { left: 5vw; }
+        .lantern.right { right: 5vw; animation-delay: -4s; }
+        
+        @keyframes swing {
+            0%, 100% { transform: rotate(3deg); }
+            50% { transform: rotate(-3deg); }
+        }
+
+        /* Symmetrical Crescents */
+        .crescent {
+            position: fixed;
+            top: 15%;
+            font-size: 6rem;
+            color: var(--gold-dark);
+            opacity: 0.3;
+            filter: drop-shadow(0 0 15px var(--gold-main));
+            z-index: -1;
+            animation: float 6s infinite ease-in-out;
+        }
+        .crescent.left { left: 15vw; }
+        .crescent.right { right: 15vw; transform: scaleX(-1); animation-delay: -3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Main Container */
+        .main-wrapper {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; padding: 20px; position: relative; z-index: 10;
+        }
+
+        /* Premium Card Design */
+        .premium-card {
+            background: var(--card-bg);
+            border: var(--border-gold);
+            border-radius: 2.5rem;
+            box-shadow: var(--shadow-gold);
+            width: 100%; max-width: 550px;
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Gold Corner Decorations */
+        .premium-card::before {
+            content: '✨'; position: absolute; top: 15px; left: 15px; font-size: 1.5rem; opacity: 0.5;
+        }
+        .premium-card::after {
+            content: '✨'; position: absolute; bottom: 15px; right: 15px; font-size: 1.5rem; opacity: 0.5;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography */
+        h1 { font-family: 'Amiri', serif; color: var(--primary-dark); font-size: 3rem; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--gold-dark); font-weight: 800; letter-spacing: 2px; margin-bottom: 2.5rem; text-transform: uppercase; font-size: 0.85rem; }
+
+        /* Form Styling */
+        .input-group { margin-bottom: 1.5rem; text-align: right; }
+        label { display: block; margin-bottom: 0.6rem; font-weight: 700; color: var(--primary); font-size: 0.95rem; }
+        input[type="text"] {
+            width: 100%; padding: 1.1rem; border: 2px solid #eee;
+            border-radius: 1.2rem; font-family: inherit; font-size: 1rem;
+            transition: all 0.3s; background: white;
+        }
+        input[type="text"]:focus { outline: none; border-color: var(--gold-main); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+
+        /* Premium Buttons */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold-main), var(--gold-dark));
+            color: white; border: none; padding: 1.3rem; border-radius: 1.2rem;
+            font-weight: 800; font-size: 1.1rem; cursor: pointer; width: 100%;
+            transition: all 0.3s; box-shadow: 0 10px 25px rgba(138, 109, 28, 0.3);
+            margin-top: 1rem;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(138, 109, 28, 0.4); filter: brightness(1.1); }
+        
+        .btn-outline {
+            background: transparent; border: 2px solid var(--gold-main); color: var(--gold-dark);
+            padding: 1.1rem; border-radius: 1.2rem; font-weight: 700; cursor: pointer; width: 100%;
+            margin-top: 1rem; transition: all 0.3s;
+        }
+        .btn-outline:hover { background: var(--gold-main); color: white; }
+
+        /* Photo Upload */
+        .upload-zone {
+            border: 2px dashed var(--gold-main); padding: 2rem; border-radius: 1.5rem;
+            cursor: pointer; transition: all 0.3s; background: rgba(212, 175, 55, 0.05);
+            margin-bottom: 2rem;
+        }
+        .upload-zone:hover { background: rgba(212, 175, 55, 0.1); }
+
+        /* Greeting Display */
+        .display-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: var(--primary-dark); margin: 1.5rem 0; }
+        .display-msg { font-size: 1.35rem; color: var(--text-main); line-height: 1.8; margin-bottom: 2.5rem; font-weight: 500; }
+        .display-photo {
+            width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+            border: 6px solid white; box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            margin: 0 auto 1.5rem; display: block;
+        }
+        .gold-divider {
+            height: 3px; width: 120px; background: linear-gradient(to right, transparent, var(--gold-main), transparent);
+            margin: 2.5rem auto; border-radius: 50%;
+        }
+
+        .hidden { display: none !important; }
+        #back-btn { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--gold-main); cursor: pointer; z-index: 20; }
+
+        /* Responsive Adjustments for Mobile */
+        @media (max-width: 600px) {
+            body { overflow-y: auto; }
+            .main-wrapper { padding: 10px; justify-content: flex-start; padding-top: 60px; }
+            .premium-card { padding: 2rem 1.5rem; border-radius: 1.5rem; }
+            
+            h1 { font-size: 2.2rem; }
+            .display-title { font-size: 2.2rem; margin: 1rem 0; }
+            .display-msg { font-size: 1.1rem; margin-bottom: 1.5rem; }
+            .display-photo { width: 120px; height: 120px; }
+            
+            .lantern { font-size: 3.5rem; }
+            .crescent { font-size: 4rem; top: 10%; }
+            
+            #capture-area { padding: 2rem 1.2rem; border-radius: 1.5rem; }
+            #capture-area p[style*="font-size: 2rem"] { font-size: 1.5rem !important; }
+            
+            .btn-gold, .btn-outline { padding: 1rem; font-size: 1rem; }
+            .input-group { margin-bottom: 1rem; }
+            input[type="text"] { padding: 0.9rem; }
+            
+            .premium-card::before, .premium-card::after { font-size: 1.2rem; }
+            
+            /* Adjust Corner Decorations for Mobile */
+            #capture-area div[style*="width: 50px"] { width: 30px !important; height: 30px !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="ornament-bg"></div>
+    
+    <div class="effects-container" id="stars-layer">
+        <!-- Symmetrical Elements -->
+        <div class="lantern left">🏮</div>
+        <div class="lantern right">🏮</div>
+        <div class="crescent left">🌙</div>
+        <div class="crescent right">🌙</div>
+    </div>
+
+    <div class="main-wrapper">
+        <!-- Step 1: Selection -->
+        <div id="step-choice" class="premium-card">
+            <h1>تهنئة رمضان</h1>
+            <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem;">
+                <button class="btn-gold" onclick="showForm('other')">💌 إهداء لشخص عزيز</button>
+                <button class="btn-outline" onclick="showForm('self')">👤 بطاقة شخصية</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Form -->
+        <div id="step-form" class="premium-card hidden">
+            <button id="back-btn" onclick="resetApp()">&#x2794;</button>
+            <h1>صمم بطاقتك</h1>
+            <p class="subtitle">Customize Your Golden Card</p>
+            
+            <form id="main-form">
+                <div id="group-recipient" class="input-group">
+                    <label>اسم المرسل إليه</label>
+                    <input type="text" id="input-recipient" placeholder="أدخل الاسم هنا...">
+                </div>
+                <div class="input-group">
+                    <label id="label-sender">اسمك (اختياري)</label>
+                    <input type="text" id="input-sender" placeholder="اكتب اسمك هنا إذا أردت...">
+                </div>
+                
+                <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+                    <div id="upload-text">
+                        <p style="font-size: 2.5rem;">📸</p>
+                        <p style="font-weight: 800; color: var(--gold-dark);">إضافة صورة شخصية</p>
+                        <p style="font-size: 0.85rem; color: #777;">(اختياري - لمسة ذهبية خاصة)</p>
+                    </div>
+                    <img id="img-preview" class="hidden" style="width: 90px; height: 90px; border-radius: 15px; margin: 0 auto; border: 2px solid var(--gold-main);">
+                    <input type="file" id="file-input" hidden accept="image/*">
+                </div>
+                
+                <button type="submit" class="btn-gold">✨ إنشاء البطاقة الذهبية</button>
+            </form>
+        </div>
+
+        <!-- Step 3: Result -->
+        <div id="step-result" class="premium-card hidden" style="max-width: 600px;">
+            <div id="capture-area" style="background: white; padding: 3.5rem 2.5rem; border-radius: 2rem; position: relative; border: 1px solid #eee;">
+                <!-- Decorative Gold Corners -->
+                <div style="position: absolute; top: 25px; left: 25px; width: 50px; height: 50px; border-top: 4px solid var(--gold-main); border-left: 4px solid var(--gold-main); border-radius: 5px 0 0 0;"></div>
+                <div style="position: absolute; top: 25px; right: 25px; width: 50px; height: 50px; border-top: 4px solid var(--gold-main); border-right: 4px solid var(--gold-main); border-radius: 0 5px 0 0;"></div>
+                <div style="position: absolute; bottom: 25px; left: 25px; width: 50px; height: 50px; border-bottom: 4px solid var(--gold-main); border-left: 4px solid var(--gold-main); border-radius: 0 0 0 5px;"></div>
+                <div style="position: absolute; bottom: 25px; right: 25px; width: 50px; height: 50px; border-bottom: 4px solid var(--gold-main); border-right: 4px solid var(--gold-main); border-radius: 0 0 5px 0;"></div>
+
+                <img id="res-photo" class="display-photo hidden">
+                <h2 id="res-title" class="display-title"></h2>
+                <div class="gold-divider"></div>
+                <p id="res-msg" class="display-msg"></p>
+                <p style="font-family: 'Amiri', serif; font-size: 2rem; color: var(--gold-dark); font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.05);">🌙 مبارك عليكم الشهر 🌙</p>
+            </div>
+            
+            <div style="margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem;">
+                <button class="btn-gold" onclick="downloadImage()">📥 تحميل البطاقة الذهبية</button>
+                <button class="btn-outline" onclick="resetApp()">إنشاء بطاقة جديدة</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const state = {
+            mode: 'other',
+            photo: null,
+            name: ''
+        };
+
+        // Navigation
+        function showForm(mode) {
+            state.mode = mode;
+            document.getElementById('step-choice').classList.add('hidden');
+            document.getElementById('step-form').classList.remove('hidden');
+            
+            const recipientGroup = document.getElementById('group-recipient');
+            const senderLabel = document.getElementById('label-sender');
+            const senderInput = document.getElementById('input-sender');
+            
+            if(mode === 'self') {
+                recipientGroup.classList.add('hidden');
+                senderLabel.innerText = "اسمك الكريم";
+                senderInput.placeholder = "أدخل اسمك هنا...";
+                senderInput.required = true;
+            } else {
+                recipientGroup.classList.remove('hidden');
+                senderLabel.innerText = "اسمك (اختياري)";
+                senderInput.placeholder = "اكتب اسمك هنا إذا أردت...";
+                senderInput.required = false;
+            }
+        }
+
+        function resetApp() {
+            location.reload();
+        }
+
+        // Photo Handling
+        document.getElementById('file-input').onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    state.photo = event.target.result;
+                    document.getElementById('img-preview').src = state.photo;
+                    document.getElementById('img-preview').classList.remove('hidden');
+                    document.getElementById('upload-text').classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+
+        // Form Submission
+        document.getElementById('main-form').onsubmit = (e) => {
+            e.preventDefault();
+            const sender = document.getElementById('input-sender').value.trim();
+            const recipient = state.mode === 'other' ? document.getElementById('input-recipient').value.trim() : sender;
+            state.name = recipient;
+            
+            renderGreeting(sender, recipient);
+        };
+
+        function typewriter(el, text, speed, callback) {
+            let i = 0;
+            el.innerHTML = "";
+            const timer = setInterval(() => {
+                if (i < text.length) {
+                    el.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                    if(callback) callback();
+                }
+            }, speed);
+        }
+
+        function renderGreeting(sender, recipient) {
+            document.getElementById('step-form').classList.add('hidden');
+            document.getElementById('step-result').classList.remove('hidden');
+            
+            const title = `رمضان كريم يا ${recipient}!`;
+            let msg = `كل عام وأنت إلى الله أقرب، أعاده الله عليك وعلى أحبابك بالخير واليمن والبركات.`;
+            if(state.mode === 'other' && sender) msg = `من ${sender}: ` + msg;
+
+            if(state.photo) {
+                document.getElementById('res-photo').src = state.photo;
+                document.getElementById('res-photo').classList.remove('hidden');
+            }
+
+            // Golden Confetti Celebration
+            const duration = 4 * 1000;
+            const end = Date.now() + duration;
+            (function frame() {
+                confetti({ particleCount: 4, angle: 60, spread: 60, origin: { x: 0 }, colors: ['#d4af37', '#ffffff', '#8a6d1c'] });
+                confetti({ particleCount: 4, angle: 120, spread: 60, origin: { x: 1 }, colors: ['#d4af37', '#ffffff', '#8a6d1c'] });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
+
+            typewriter(document.getElementById('res-title'), title, 60, () => {
+                typewriter(document.getElementById('res-msg'), msg, 30);
+            });
+        }
+
+        function downloadImage() {
+            const area = document.getElementById('capture-area');
+            html2canvas(area, { scale: 3, backgroundColor: '#ffffff' }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `Ramadan-Golden-${state.name}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+
+        // Background Stars
+        const layer = document.getElementById('stars-layer');
+        for (let i = 0; i < 60; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            layer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
