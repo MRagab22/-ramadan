@@ -4,7 +4,7 @@
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تهنئة رمضان</title>
+    <title>تهنئة رمضان - Golden Luxury Edition</title>
     
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -196,28 +196,35 @@
         /* Responsive Adjustments for Mobile */
         @media (max-width: 600px) {
             body { overflow-y: auto; }
-            .main-wrapper { padding: 10px; justify-content: flex-start; padding-top: 60px; }
-            .premium-card { padding: 2rem 1.5rem; border-radius: 1.5rem; }
+            .main-wrapper { padding: 10px; justify-content: center; min-height: 100vh; }
+            .premium-card { padding: 1.5rem 1rem; border-radius: 1.2rem; }
             
-            h1 { font-size: 2.2rem; }
-            .display-title { font-size: 2.2rem; margin: 1rem 0; }
-            .display-msg { font-size: 1.1rem; margin-bottom: 1.5rem; }
-            .display-photo { width: 120px; height: 120px; }
+            h1 { font-size: 1.8rem; }
+            .subtitle { margin-bottom: 1.5rem; font-size: 0.75rem; }
+            .display-title { font-size: 0.95rem; margin: 0.6rem 0; white-space: nowrap; overflow: hidden; text-overflow: clip; letter-spacing: -0.8px; }
+            .display-msg { font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5; }
+            .display-photo { width: 90px; height: 90px; margin-bottom: 1rem; }
             
-            .lantern { font-size: 3.5rem; }
-            .crescent { font-size: 4rem; top: 10%; }
+            .lantern { font-size: 2.5rem; top: -5px; }
+            .crescent { font-size: 3rem; top: 8%; }
             
-            #capture-area { padding: 2rem 1.2rem; border-radius: 1.5rem; }
-            #capture-area p[style*="font-size: 2rem"] { font-size: 1.5rem !important; }
+            #capture-area { padding: 1.5rem 1rem; border-radius: 1.2rem; }
+            #capture-area p[style*="font-size: 2rem"] { font-size: 1.2rem !important; }
+            .gold-divider { margin: 1.5rem auto; width: 80px; }
             
-            .btn-gold, .btn-outline { padding: 1rem; font-size: 1rem; }
-            .input-group { margin-bottom: 1rem; }
-            input[type="text"] { padding: 0.9rem; }
+            .btn-gold, .btn-outline { padding: 0.8rem; font-size: 0.95rem; margin-top: 0.6rem; }
+            .input-group { margin-bottom: 0.8rem; }
+            label { font-size: 0.85rem; margin-bottom: 0.4rem; }
+            input[type="text"] { padding: 0.75rem; font-size: 0.9rem; border-radius: 0.8rem; }
             
-            .premium-card::before, .premium-card::after { font-size: 1.2rem; }
+            .upload-zone { padding: 1rem; margin-bottom: 1rem; border-radius: 1rem; }
+            .upload-zone p[style*="font-size: 2.5rem"] { font-size: 1.8rem !important; }
+            
+            .premium-card::before, .premium-card::after { font-size: 1rem; }
             
             /* Adjust Corner Decorations for Mobile */
-            #capture-area div[style*="width: 50px"] { width: 30px !important; height: 30px !important; }
+            #capture-area div[style*="width: 50px"] { width: 25px !important; height: 25px !important; }
+            #back-btn { font-size: 1.5rem; top: 1rem; right: 1rem; }
         }
     </style>
 </head>
