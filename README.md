@@ -20,7 +20,7 @@ An elegant web application for creating premium golden Ramadan greeting cards wi
 - Live preview
 - Typewriter text animation
 - Golden confetti celebration effects
-- High-quality PNG download
+- High-quality PNG download (3x scale)
 - Print-optimized output
 
 ## Technologies
@@ -36,13 +36,12 @@ An elegant web application for creating premium golden Ramadan greeting cards wi
 - CSS Variables
 - Animations and Keyframes
 - Flexbox layouts
-- Responsive media queries
+- Responsive clamp() functions
 
 ## Browser Support
 Chrome, Firefox, Safari, Edge - all modern browsers supported
 
 ## Usage
-
 1. Open the HTML file in any browser
 2. Choose mode (gift or personal)
 3. Enter names and optional photo
@@ -50,14 +49,12 @@ Chrome, Firefox, Safari, Edge - all modern browsers supported
 5. Download or print
 
 ## File Structure
-
 - Single HTML file containing all code
 - No server required
 - Works offline
 - All processing done locally in browser
 
 ## Technical Highlights
-
 - No backend needed
 - Fast loading
 - Secure local processing
@@ -66,8 +63,12 @@ Chrome, Firefox, Safari, Edge - all modern browsers supported
 - Mobile-optimized with special breakpoints
 
 ## Color Scheme
+- Primary Dark: #2c1810
+- Primary: #6b4423
+- Gold Light: #f5d97a
+- Gold Main: #d4b561
+- Gold Dark: #b8963d
 
-- Primary Dark: #2c1e0a
-- Gold Main: #d4af37
-- Gold Dark: #8a6d1c
-- Gold Light: #fff3d6
+---
+
+**رمضان كريم! 🌙✨**
