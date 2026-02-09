@@ -201,7 +201,17 @@
             
             h1 { font-size: 1.8rem; }
             .subtitle { margin-bottom: 1.5rem; font-size: 0.75rem; }
-            .display-title { font-size: 1.1rem; margin: 0.6rem 0; white-space: nowrap; overflow: hidden; text-overflow: clip; letter-spacing: -0.5px; }
+            
+            /* إصلاح عنوان التهنئة على الموبايل */
+            .display-title { 
+                font-size: 1.7rem !important; 
+                margin: 1rem 0; 
+                line-height: 1.5; 
+                word-wrap: break-word; 
+                white-space: normal;
+                padding: 0 5px;
+            }
+            
             .display-msg { font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5; }
             .display-photo { width: 90px; height: 90px; margin-bottom: 1rem; }
             
@@ -225,6 +235,30 @@
             /* Adjust Corner Decorations for Mobile */
             #capture-area div[style*="width: 50px"] { width: 25px !important; height: 25px !important; }
             #back-btn { font-size: 1.5rem; top: 1rem; right: 1rem; }
+        }
+        
+        /* طباعة محسّنة */
+        @media print {
+            body { overflow: visible; background: white; }
+            .main-wrapper { padding: 0; min-height: auto; }
+            .premium-card { box-shadow: none; border: none; page-break-inside: avoid; }
+            .lantern, .crescent, .star, .background-overlay, .ornament-bg { display: none !important; }
+            .btn-gold, .btn-outline { display: none !important; }
+            #back-btn { display: none !important; }
+            
+            /* تحسين عرض الاسم في الطباعة */
+            .display-title {
+                font-size: 2.5rem !important;
+                line-height: 1.4 !important;
+                white-space: normal !important;
+                word-wrap: break-word !important;
+                page-break-inside: avoid;
+            }
+            
+            #capture-area {
+                border: 2px solid var(--gold-main) !important;
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
