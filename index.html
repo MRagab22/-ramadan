@@ -382,7 +382,7 @@
             <form id="main-form">
                 <div id="group-recipient" class="input-group">
                     <label>اسم المرسل إليه</label>
-                    <input type="text" id="input-recipient" placeholder="أدخل الاسم هنا...">
+                    <input type="text" id="input-recipient" placeholder="أدخل الاسم هنا..." required>
                 </div>
                 <div class="input-group">
                     <label id="label-sender">اسمك (اختياري)</label>
@@ -425,6 +425,16 @@
             </div>
         </div>
     </div>
+    
+    <!-- Fixed Developer Credit in Golden Background -->
+    <div id="developer-credit" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 999; text-align: center; transition: opacity 0.3s;">
+        <p style="font-size: clamp(0.75rem, 2vw, 0.9rem); color: var(--gold-light); text-shadow: 0 2px 4px rgba(0,0,0,0.3); font-weight: 600;">
+            Developed and Tested by <span style="color: #f5d97a; font-weight: 800;">M.Ali</span>
+        </p>
+        <p style="font-size: clamp(0.7rem, 1.8vw, 0.8rem); color: var(--gold-light); text-shadow: 0 2px 4px rgba(0,0,0,0.3); font-weight: 500; margin-top: 0.3rem; opacity: 0.9;">
+            All Rights Reserved © 2026
+        </p>
+    </div>
 
     <script>
         const state = {
@@ -439,6 +449,9 @@
             document.getElementById('step-choice').classList.add('hidden');
             document.getElementById('step-form').classList.remove('hidden');
             
+            // Hide developer credit when not on main page
+            document.getElementById('developer-credit').style.opacity = '0';
+            
             // Scroll to top to show the form from the beginning
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
@@ -451,11 +464,13 @@
                 senderLabel.innerText = "اسمك الكريم";
                 senderInput.placeholder = "أدخل اسمك هنا...";
                 senderInput.required = true;
+                document.getElementById('input-recipient').required = false;
             } else {
                 recipientGroup.classList.remove('hidden');
                 senderLabel.innerText = "اسمك (اختياري)";
                 senderInput.placeholder = "اكتب اسمك هنا إذا أردت...";
                 senderInput.required = false;
+                document.getElementById('input-recipient').required = true;
             }
         }
 
@@ -482,9 +497,15 @@
         document.getElementById('main-form').onsubmit = (e) => {
             e.preventDefault();
             const sender = document.getElementById('input-sender').value.trim();
-            const recipient = state.mode === 'other' ? document.getElementById('input-recipient').value.trim() : sender;
-            state.name = recipient;
+            const recipient = state.mode === 'self' ? sender : document.getElementById('input-recipient').value.trim();
             
+            // Validation
+            if (!recipient) {
+                alert('من فضلك أدخل الاسم');
+                return;
+            }
+            
+            state.name = recipient;
             renderGreeting(sender, recipient);
         };
 
@@ -505,6 +526,9 @@
         function renderGreeting(sender, recipient) {
             document.getElementById('step-form').classList.add('hidden');
             document.getElementById('step-result').classList.remove('hidden');
+            
+            // Hide developer credit when showing result
+            document.getElementById('developer-credit').style.opacity = '0';
             
             // Scroll to top to show the card from the beginning
             window.scrollTo({ top: 0, behavior: 'smooth' });
